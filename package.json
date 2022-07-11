@@ -1,0 +1,26 @@
+{
+  "name": "@monorepo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "concurrently \"npm:dev:utils\" \"npm:dev:blog\" \"npm:dev:dashboard\"",
+    "build": "concurrently \"npm:build:utils\" \"npm:build:blog\" \"npm:build:dashboard\"",
+    "dev:utils": "npm run dev -w @monorepo/utils",
+    "dev:blog": "npm run dev -w @monorepo/blog",
+    "dev:dashboard": "npm run dev -w @monorepo/dashboard",
+    "build:utils": "npm run build -w @monorepo/utils",
+    "build:blog": "npm run build -w @monorepo/blog",
+    "build:dashboard": "npm run build -w @monorepo/dashboard"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "apps/*",
+    "libs/*"
+  ],
+  "devDependencies": {
+    "concurrently": "^7.2.2"
+  }
+}
